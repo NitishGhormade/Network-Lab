@@ -2,29 +2,29 @@
 // Use this editor to write, compile and run your Java code online
 import java.util.*;
 
-class HelloWorld {
+class CissorChyper {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("Enter the TEXT: ");
         String str = sc.nextLine();
-        
+
         System.out.print("Enter the KEY: ");
         int key = sc.nextInt();
-        
+
         String temp = "";
-        
+
         for(int i=0;i < str.length();i++){
             int oldascii = (int)str.charAt(i);
             int newascii = oldascii + key;
-            
+
             if(oldascii>65 && oldascii<90){
-                if(newascii > 90) newascii = 65 + (newascii-90);
+                if(newascii > 90) newascii -= 26;
             }
             else if(oldascii>97 && oldascii<122){
-                if(newascii > 122) newascii = 97 + (newascii-122);
+                if(newascii > 122) newascii -= 26;
             }
-            
+
             temp = temp + (char)newascii;
         }
         System.out.println("The Encripted Value:  "+temp);
