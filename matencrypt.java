@@ -26,5 +26,16 @@ class matencrypt {
             System.out.println();
         }
 
+////////////////////////////////////////////////////////////////////////////////////
+
+        System.out.print("Enter the Code to be Encrypted: ");
+        String str = sc.nextLine();
+
+        System.out.print("Enter the Key String: ");
+        String key = sc.nextLine();
+
+        String temp = "";
+
+        
     }
 }
