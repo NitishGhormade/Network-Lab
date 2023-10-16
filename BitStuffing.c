@@ -1,56 +1,33 @@
-#include <stdio.h>
-#include<stdlib.h>
+#include<stdio.h>
 #include<string.h>
 
-struct bitSt{
-    char *ptr;
+void main(){
     int size;
-    int Top;
-};
+    printf("Enter the SIZE of Bit String: ");
+    scanf("%d",&size);
 
-void create(struct bitSt *bt){
-    bt->size = 0;
-    bt->Top = -1;
-}
+    char strInput[size];
+    printf("Enter the BIT String: ");
+    scanf("%s",strInput);
 
-void input(struct bitSt *bt,char ch){
-    bt->size++;
-    bt->ptr = (char*)realloc(bt->ptr,bt->size * sizeof(char));
-    
-    bt->Top++;
-    bt->ptr[bt->Top] = ch;
-}
+    char strOutput[size * size];
 
-int main() {
-    struct bitSt bt;
-    
-    char str[100];
-    printf("Enter the String: ");
-    scanf("%s",str);
-    
-    int i;
-    for(i = 0;i <= strlen(str)-5;i = i+5){
-        if(str[i]==1 && str[i+1]==1 && str[i+2]==1 && str[i+3]==1 && str[i+4]==1){
-            input(&bt,str[i]);
-            input(&bt,str[i+1]);
-            input(&bt,str[i+2]);
-            input(&bt,str[i+3]);
-            input(&bt,str[i+4]);
-            input(&bt,'0');
+    int i = 0;
+    int j = 0;
+    int temp = 0;
+    while(strInput[i] != '\0'){
+        if(strInput[i] == '1'){
+            temp++;
         }
-        else{
-            input(&bt,str[i]);
-            input(&bt,str[i+1]);
-            input(&bt,str[i+2]);
-            input(&bt,str[i+3]);
-            input(&bt,str[i+4]);
+        strOutput[j] = strInput[i];
+        if(temp == 5){
+            j++;
+            strOutput[j] = '0';
+            temp = 0;
         }
+        i++;
+        j++;
     }
-    
-    printf("The Bit Stuffed String: ");
-    for(i=0;i <= bt.size-1;i++){
-        printf("%c",bt.ptr[i]);
-    } 
-    
-    return 0;
+
+    printf("The Output String: %s",strOutput);
 }
