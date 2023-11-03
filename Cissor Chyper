@@ -1,5 +1,3 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 import java.util.*;
 
 class CissorChyper {
@@ -51,4 +49,3 @@ class CissorChyper {
         System.out.println("\nThe Decrypted Code: "+tempStr2);
     }
 }
-
